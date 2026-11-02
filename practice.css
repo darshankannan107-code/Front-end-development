@@ -1,0 +1,13 @@
+body{
+    color: blueviolet;
+    background-color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+ .darshan{
+    padding: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: aliceblue;
+    margin: 20px;
+ }
