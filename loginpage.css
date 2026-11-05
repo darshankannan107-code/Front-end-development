@@ -1,0 +1,112 @@
+body{
+   background: #EEAECA;
+background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(114, 36, 145, 1) 62%, rgba(148, 187, 233, 1) 100%);
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+min-height:100vh ;
+font-size: 16px;
+font-weight: normal;
+margin: 0%;
+}
+.login-container{
+ 
+   min-height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 20px;
+   box-sizing: border-box;
+   box-shadow: chartreuse;
+}
+.login-box{
+   width: 350px;
+   padding: 35px;
+   margin: 20px;
+   border-style: groove;
+   border-color: aqua;
+   box-shadow: 0 0 20px black;
+   border-radius: 20px;
+
+   
+}
+h1{
+   color: rgb(0, 0, 0);
+   text-transform: capitalize;
+   text-align: center;
+   letter-spacing: 1px;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+   font-size: 30px;
+   font-weight: bold;
+   margin-bottom: 20px;
+}
+.subtitle{
+   color: rgb(0, 0, 0);
+   text-align: center;
+   font-size: 15px;
+   font-weight: normal;
+   line-height: 1.5;
+   margin-bottom: 30px;
+
+}
+.main{
+   margin-bottom: 20px;
+
+}
+.main label{
+   display: block;
+   color: #000000;
+   font-size:14px ;
+   font-weight: bold;
+   margin-bottom: 8px;
+}
+.main input{
+   width: 100%;
+   background-color: rgb(161, 190, 207);
+   padding: 20px;
+   box-sizing: border-box;
+   border: 1px solid #333;
+    border-radius: 10px;
+    box-shadow: inset;
+    
+}
+.options{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 25px;
+   font-size: 15px;
+
+}
+a{
+   color: blue;
+   font-size: 15px;
+   font-weight: bold;
+   text-decoration: none;
+}
+
+a:hover{
+   text-decoration: underline;
+}
+button{
+   width: 100%;
+   align-items: center;
+   padding: 13px;
+   background-color: white;
+   color: black;
+   border-radius: 16px;
+   border: 2px solid black;
+   cursor: pointer;
+}
+button:hover{
+   color: black;
+   background-color: #8fb8c9;
+}
+.Register{
+   text-align: center;
+   font-size: 14px;
+   color: #333;
+   margin-top: 25px;
+   line-height: 1.5;
+
+}
