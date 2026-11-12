@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Registration form</title>
+    <link rel="icon" href="./asset/MyDream Car/WhatsApp Image 2026-10-30 at 1.00.19 PM.jpeg">
+    <link rel="stylesheet" href="./job reg.css">
+</head>
+
+<body>
+    <!-- main container -->
+    <div class="container">
+        <!-- form header-->
+        <header class="form-header">
+            <h1>Job Registration Form</h1>
+            <p>Apply for your dream job.Fill in you'r details below</p>
+        </header>
+
+        <!-- registration form -->
+        <form>
+            <!-- section 1 - Personal information-->
+            <section class="form-section">
+                <h2>1.Personal information</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" placeholder="Enter your first name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" placeholder="Enter your Last name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>email</label>
+                        <input type="email" placeholder="Enter your E-mail" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mobile Number</label>
+                        <input type="tel" placeholder="Enter your Mobile Number" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Date of birth</label>
+                        <input type="date">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <select>
+                            <option value="">Select Gender</option>
+                            <option>male</option>
+                            <option>Female</option>
+                            <option>Prefer not to say</option>
+                        </select>
+
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Address</label>
+                        <textarea rows="3" placeholder="Enter your Address"></textarea>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Section 2 : Job Details -->
+            <section class="form-section">
+                <h2>2.Job Preferance</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Job Role</label>
+
+                        <select required>
+                            <option value="">Select Job Role</option>
+                            <option>Front-End Developer</option>
+                            <option>Back-End Developer</option>
+                            <option>Full-Stack Developer</option>
+                            <option>Java Developer</option>
+                            <option>Python Developer</option>
+                            <option>Data analyst</option>
+                            <option>Software Tester</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <label>Job Type</label>
+                        <select>
+                            <option value="">Job Type</option>
+                            <option>Full-Time</option>
+                            <option>Part-Time</option>
+                            <option>Intership</option>
+                            <option>Remote</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Expected salary</label>
+                        <input type="text" placeholder="Enter Expected salary">
+                    </div>
+                    <div class="form-group">
+                        <label>Prefered Locaton</label>
+                        <input type="text" placeholder="Enter Prefered Location">
+                    </div>
+                    <!-- section 3 : Educational details -->
+                    <section class="form-section">
+                        <h2>3. Educational Details</h2>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Qualification </label>
+                                <select>
+                                    <option value="0"> Select Qualification</option>
+                                    <option>B.E</option>
+                                    <option>BSC</option>
+                                    <option>BCA</option>
+                                    <option>M.E</option>
+                                    <option>MCA</option>
+                                    <option>MBA</option>
+                                </select>
+
+                            </div>
+                            <div class="form-group">
+                                <label>College Name</label>
+                                <input type="text" placeholder="Enter college Name">
+
+                            </div>
+                            <div class="form-group">
+                                <label>Graduation year</label>
+                                <input type="number" placeholder="ex:2026">
+
+                            </div>
+                            <div class="form-group">
+                                <label>College Name</label>
+                                <input type="text" placeholder="Enter college Name">
+
+                            </div>
+                            <div class="form-group">
+                                <label>Percentage/CGPA</label>
+                                <input type="text" placeholder="Enter Percentage/CGPA">
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                    <!-- Section 4 : Skills & exp DEtails -->
+                    <section class="form-section">
+                        <h2>4.Skills & Experiance</h2>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label >Experiance Level</label>
+                                <select required>
+                                    <option value="0">Experiance</option>
+                                    <option>Fresher</option>
+                                    <option>1-2 Yrs</option>
+                                    <option>2-4 Yrs</option>
+                                    <option>5+ Yrs</option>
+                                </select>
+
+                            </div>
+                            <div class="form-group">
+                                <label>Previous Company</label>
+                                <input type="text" placeholder="enter Company Name">
+
+                            </div>
+                            <div class="form-group full-width">
+                                <label>Technical Skills</label>
+                                <textarea rows="3"
+                                    placeholder="Example: CSS,HTML,JAVASCRIPT,REACT,BOOTSTRAP,JAVA,PYTHON "></textarea>
+
+                            </div>
+                            <div class="form-group full-width">
+                                <label>About Yourself</label>
+                                <textarea rows="4" placeholder="write about Yourself"></textarea>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </section>
+
+                    <!-- Resume Uploading -->
+                    <section class="section">
+                        <h2>Resume Upload</h2>
+
+                        <div class="form-group">
+                            <label>update resume(pdf)</label>
+                            <input type="file" accept=".pdf">
+
+
+                        </div>
+
+
+                    </section>
+
+                    <!-- Terms and conditions -->
+                    <div class="Terms">
+                        <label>
+                            <input type="checkbox" required> i agree to terms and conditions
+                        </label>
+
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="button-group">
+                        <button type="submit" class="reset-btn"> Submit Application</button>
+                        <button type="reset" class="reset-btn">Reset Form</button>
+                    </div>
+                </div>
+
+            </section>
+
+        </form>
+
+    </div>
+    <!-- footer -->
+    <footer>
+        <p>&copy; 2026 job Registration Portal</p>
+    </footer>
+</body>
+
+</html>
