@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#11142b">
+    <title>Sign in | Northstar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+            --ink: #17192f;
+            --muted: #77798b;
+            --violet: #6758e8;
+            --violet-dark: #5142d2;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            background: #f5f5fa;
+            color: var(--ink);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+        }
+
+        .page-shell {
+            min-height: 100vh;
+            padding: clamp(14px, 3vw, 36px);
+        }
+
+        .login-card {
+            width: min(1120px, 100%);
+            min-height: min(720px, calc(100vh - 2 * clamp(14px, 3vw, 36px)));
+            margin: auto;
+            overflow: hidden;
+            border: 1px solid rgba(28, 29, 58, .08);
+            border-radius: 26px;
+            background: #fff;
+            box-shadow: 0 28px 90px rgba(37, 37, 76, .12);
+        }
+
+        .brand-panel {
+            position: relative;
+            display: flex;
+            min-height: 100%;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            padding: clamp(30px, 5vw, 58px);
+            color: #fff;
+            background:
+                radial-gradient(ellipse at 82% 84%, rgba(120, 97, 255, .45), transparent 37%),
+                radial-gradient(ellipse at 0% 15%, rgba(57, 91, 178, .26), transparent 40%),
+                linear-gradient(145deg, #171a39 0%, #11142b 65%, #20204b 100%);
+        }
+
+        .brand-panel::before,
+        .brand-panel::after {
+            position: absolute;
+            width: 340px;
+            height: 340px;
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-radius: 50%;
+            content: "";
+            pointer-events: none;
+        }
+
+        .brand-panel::before {
+            right: -150px;
+            bottom: 40px;
+        }
+
+        .brand-panel::after {
+            right: -95px;
+            bottom: 95px;
+            width: 230px;
+            height: 230px;
+        }
+
+        .brand-lockup,
+        .brand-copy,
+        .brand-footer {
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand-lockup {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: #fff;
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: .01em;
+            text-decoration: none;
+        }
+
+        .brand-mark {
+            display: grid;
+            width: 38px;
+            height: 38px;
+            place-items: center;
+            border: 1px solid rgba(255, 255, 255, .23);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, .1);
+        }
+
+        .brand-copy {
+            max-width: 430px;
+            margin: auto 0;
+            padding: 64px 0;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 22px;
+            color: #c4c6e7;
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #9c8cff;
+            box-shadow: 0 0 14px #9c8cff;
+        }
+
+        .brand-copy h1 {
+            max-width: 400px;
+            margin: 0 0 18px;
+            font-size: clamp(2.4rem, 4vw, 3.65rem);
+            font-weight: 650;
+            letter-spacing: -.055em;
+            line-height: 1.08;
+        }
+
+        .brand-copy p {
+            max-width: 350px;
+            margin: 0;
+            color: #b6b8d0;
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+
+        .brand-footer {
+            color: #a4a6c1;
+            font-size: .8rem;
+        }
+
+        .form-panel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(32px, 6vw, 76px);
+        }
+
+        .form-content {
+            width: min(100%, 390px);
+        }
+
+        .mobile-brand {
+            display: none;
+            margin-bottom: 38px;
+        }
+
+        .form-content h2 {
+            margin: 0 0 9px;
+            font-size: clamp(1.8rem, 3vw, 2.15rem);
+            font-weight: 700;
+            letter-spacing: -.045em;
+        }
+
+        .form-intro {
+            margin-bottom: 32px;
+            color: var(--muted);
+            font-size: .94rem;
+        }
+
+        .form-label {
+            margin-bottom: 8px;
+            color: #303146;
+            font-size: .85rem;
+            font-weight: 650;
+        }
+
+        .form-control {
+            min-height: 51px;
+            border-color: #e4e5ed;
+            border-radius: 10px;
+            padding: .8rem .95rem;
+            color: var(--ink);
+            font-size: .92rem;
+            box-shadow: none;
+        }
+
+        .form-control::placeholder {
+            color: #a1a2b1;
+        }
+
+        .form-control:focus {
+            border-color: #887cf0;
+            box-shadow: 0 0 0 .22rem rgba(103, 88, 232, .13);
+        }
+
+        .input-group .form-control {
+            border-right: 0;
+        }
+
+        .input-group .form-control:focus {
+            z-index: 1;
+        }
+
+        .password-toggle {
+            min-width: 48px;
+            border-color: #e4e5ed;
+            border-radius: 0 10px 10px 0;
+            color: #77798b;
+            background: #fff;
+        }
+
+        .password-toggle:hover,
+        .password-toggle:focus {
+            border-color: #887cf0;
+            color: var(--violet);
+        }
+
+        .form-check-input {
+            border-color: #c8c9d4;
+        }
+
+        .form-check-input:checked {
+            border-color: var(--violet);
+            background-color: var(--violet);
+        }
+
+        .form-check-input:focus {
+            border-color: #887cf0;
+            box-shadow: 0 0 0 .2rem rgba(103, 88, 232, .14);
+        }
+
+        .form-check-label,
+        .form-link {
+            color: #626477;
+            font-size: .82rem;
+        }
+
+        .form-link {
+            color: var(--violet);
+            font-weight: 650;
+            text-decoration: none;
+        }
+
+        .form-link:hover {
+            color: var(--violet-dark);
+            text-decoration: underline;
+        }
+
+        .btn-sign-in {
+            min-height: 51px;
+            border: 0;
+            border-radius: 10px;
+            background: var(--violet);
+            box-shadow: 0 8px 18px rgba(103, 88, 232, .22);
+            font-size: .92rem;
+            font-weight: 650;
+            transition: background-color .18s ease, transform .18s ease, box-shadow .18s ease;
+        }
+
+        .btn-sign-in:hover {
+            transform: translateY(-1px);
+            background: var(--violet-dark);
+            box-shadow: 0 11px 22px rgba(103, 88, 232, .28);
+        }
+
+        .btn-sign-in:focus-visible,
+        .password-toggle:focus-visible,
+        .form-link:focus-visible,
+        .brand-lockup:focus-visible {
+            outline: 3px solid rgba(103, 88, 232, .45);
+            outline-offset: 3px;
+        }
+
+        .signup-prompt {
+            margin: 26px 0 0;
+            color: var(--muted);
+            font-size: .85rem;
+            text-align: center;
+        }
+
+        .security-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            margin-top: 37px;
+            color: #9293a2;
+            font-size: .75rem;
+        }
+
+        @media (max-width: 767.98px) {
+            .page-shell {
+                padding: 0;
+                background: #fff;
+            }
+
+            .login-card {
+                min-height: 100vh;
+                border: 0;
+                border-radius: 0;
+                box-shadow: none;
+            }
+
+            .brand-panel {
+                display: none;
+            }
+
+            .form-panel {
+                min-height: 100vh;
+                padding: 34px 25px;
+            }
+
+            .mobile-brand {
+                display: inline-flex;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page-shell d-flex align-items-center">
+        <div class="login-card row g-0">
+            <section class="brand-panel col-md-6" aria-label="About Northstar">
+                <a class="brand-lockup" href="#" aria-label="Northstar home">
+                    <span class="brand-mark" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2.75 14.45 9.55 21.25 12l-6.8 2.45L12 21.25l-2.45-6.8L2.75 12l6.8-2.45L12 2.75Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="12" r="2" fill="currentColor" />
+                        </svg>
+                    </span>
+                    Northstar
+                </a>
+
+                <div class="brand-copy">
+                    <div class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>Your space, in focus</div>
+                    <h1>Good to see you again.</h1>
+                    <p>Pick up right where you left off. Your work, your ideas, and your next big thing are waiting.</p>
+                </div>
+
+                <div class="brand-footer">A little more focus. A lot more possibility.</div>
+            </section>
+
+            <section class="form-panel col-md-6" aria-labelledby="sign-in-title">
+                <div class="form-content">
+                    <a class="brand-lockup mobile-brand text-dark" href="#" aria-label="Northstar home">
+                        <span class="brand-mark text-white" style="background:#171a39">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M12 2.75 14.45 9.55 21.25 12l-6.8 2.45L12 21.25l-2.45-6.8L2.75 12l6.8-2.45L12 2.75Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+                                <circle cx="12" cy="12" r="2" fill="currentColor" />
+                            </svg>
+                        </span>
+                        Northstar
+                    </a>
+                    <h2 id="sign-in-title">Welcome back</h2>
+                    <p class="form-intro">Enter your details to sign in to your account.</p>
+
+                    <form action="/login" method="post">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input id="email" name="email" type="email" class="form-control" placeholder="you@example.com" autocomplete="email" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <div class="input-group">
+                                <input id="password" name="password" type="password" class="form-control" placeholder="Enter your password" autocomplete="current-password" required>
+                                <button class="btn password-toggle" type="button" id="toggle-password" aria-label="Show password" aria-pressed="false">
+                                    <svg id="eye-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <path d="M2.5 12s3.45-6 9.5-6 9.5 6 9.5 6-3.45 6-9.5 6-9.5-6-9.5-6Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                                        <circle cx="12" cy="12" r="2.7" stroke="currentColor" stroke-width="1.7" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="yes" id="remember">
+                                <label class="form-check-label" for="remember">Remember me</label>
+                            </div>
+                            <a class="form-link" href="#">Forgot password?</a>
+                        </div>
+
+                        <button class="btn btn-primary btn-sign-in w-100" type="submit">Sign in</button>
+                    </form>
+
+                    <p class="signup-prompt">New to Northstar? <a class="form-link" href="#">Create an account</a></p>
+                    <div class="security-note">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <rect x="4" y="10" width="16" height="11" rx="2" stroke="currentColor" stroke-width="1.7" />
+                            <path d="M8 10V7a4 4 0 1 1 8 0v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                        </svg>
+                        Your information is always kept secure
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        const passwordInput = document.getElementById("password");
+        const togglePassword = document.getElementById("toggle-password");
+
+        togglePassword.addEventListener("click", () => {
+            const isPasswordHidden = passwordInput.type === "password";
+            passwordInput.type = isPasswordHidden ? "text" : "password";
+            togglePassword.setAttribute("aria-label", isPasswordHidden ? "Hide password" : "Show password");
+            togglePassword.setAttribute("aria-pressed", String(isPasswordHidden));
+        });
+    </script>
+</body>
+
+</html>
